@@ -7,5 +7,5 @@ spec:
   selector:
     component: server
   ports:
-    - port: 5000 # network internal port
-      targetPort: 5000 # app port
+    - port: 5000
+      targetPort: 5000
