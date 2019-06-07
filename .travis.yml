@@ -11,9 +11,7 @@ before_install:
   - source $HOME/google-cloud-sdk/path.bash.inc
   - gcloud components update kubectl
   - gcloud auth activate-service-account --key-file service-account.json
-  - gloud config set project exp-multi-k8s
-  - gloud config compute/zone us-central1-a
-  - gloud container clusters get-credentials standard-cluster-1
+  - gcloud container clusters get-credentials standard-cluster-1 --zone us-central1-a --project exp-multi-k8s
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
   - docker build -t navendux/react-test -f ./client/Dockerfile.dev ./client
 
