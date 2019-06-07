@@ -12,5 +12,5 @@ docker push navendux/multi-worker:latest
 docker push navendux/multi-worker:$GIT_SHA
 kubectl apply -f k8s
 kubectl set image deployments/server-deployment server=navendux/multi-server:$GIT_SHA
-kubectl set image deployments/client-deployment server=navendux/multi-client:$GIT_SHA
-kubectl set image deployments/worker-deployment server=navendux/multi-worker:$GIT_SHA
+kubectl set image deployments/client-deployment client=navendux/multi-client:$GIT_SHA
+kubectl set image deployments/worker-deployment worker=navendux/multi-worker:$GIT_SHA
