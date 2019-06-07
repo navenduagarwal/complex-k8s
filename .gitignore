@@ -134,4 +134,3 @@ zz_generated_*_test.go
 vendordiff.patch
 exp-multi-k8s-9dae65c045a0.json
 service-account.json
-*.json
