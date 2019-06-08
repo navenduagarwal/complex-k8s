@@ -12,11 +12,12 @@ before_install:
   - gcloud components update kubectl
   - gcloud auth activate-service-account --key-file service-account.json
   - gcloud container clusters get-credentials standard-cluster-1 --zone us-central1-a --project exp-multi-k8s
-  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-  - docker build -t navendux/react-test -f ./client/Dockerfile.dev ./client
+#  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+  - echo "$AZURE_PASSWORD" | docker login sparshik.azurecr.io -u "$AZURE_USERNAME" --password-stdin
+  - docker build -t sparshik.azurecr.io/react-test -f ./client/Dockerfile.dev ./client
 
 script:
-  - docker run navendux/react-test npm test -- --coverage
+  - docker run sparshik.azurecr.io/react-test npm test -- --coverage
 
 deploy:
   provider: script
